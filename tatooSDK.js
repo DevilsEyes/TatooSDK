@@ -16,8 +16,7 @@
 
             if(tatoo.isAndroid){
                 var method = 'get' + target.substr(0,1).toUpperCase() + target.substr(1);
-                console.log(method);
-                tatoo.data[target] = window['tattoo_and'][method]();
+                tatoo.data[target] = $.parseJSON(window['tattoo_and'][method]());
                 return next();
             }else if(tatoo.isiOS){
                 tatoo.callbackFunction[target] = next;//注册回调事件
@@ -39,7 +38,7 @@
             if(tatoo.isiOS){
                 var params = str.split('|');
                 var target = params[0];
-                tatoo.data[target] = JSON.parse(params[1]);//存放数据
+                tatoo.data[target] = $.parseJSON(params[1]);//存放数据
                 tatoo.callbackFunction[target]();//执行回调
                 tatoo.callbackFunction[target] = null;//解除回调事件的注册
             }
