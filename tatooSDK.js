@@ -16,10 +16,8 @@
 
             if(tatoo.isAndroid){
                 var method = 'get' + target.substr(0,1).toUpperCase() + target.substr(1);
-                console.log('1:'+window['tattoo_and'][method]());
-                console.log('2:'+$.parseJSON(window['tattoo_and'][method]()));
-                tatoo.data[target] = window['tattoo_and'][method]();
-                console.log('3:'+tatoo.data[target]);
+                tatoo.data[target] = $.parseJSON(window['tattoo_and'][method]());
+                console.log('0:'+tatoo.data[target]);
                 return next();
             }else if(tatoo.isiOS){
                 tatoo.callbackFunction[target] = next;//注册回调事件
