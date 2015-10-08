@@ -17,7 +17,8 @@
     function getUserInfo(){
         alert('获取中');
         tatoo.get('userInfo',function(){
-            var str='',obj=tatoo.data.userInfo;
+            var str=tatoo.data.userInfo,
+                    obj=tatoo.data.userInfo;
             for(var i in obj){
                 str += i + ':' + obj[i] +'\n';
             }
