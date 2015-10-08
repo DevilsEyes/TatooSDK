@@ -15,7 +15,9 @@
             //-------------------------------------------
 
             if(tatoo.isAndroid){
-                tatoo.data[target] = window[tattoo_and][target];
+                var method = 'get' + target.substr(0,1).toUpperCase() + target.substr(1);
+                console.log(method);
+                tatoo.data[target] = window[tattoo_and][method]();
                 return next();
             }else if(tatoo.isiOS){
                 tatoo.callbackFunction[target] = next;//注册回调事件
@@ -43,6 +45,7 @@
             }
         },
 
+        //isAndroid:true,
         isAndroid: u.indexOf('Android') > -1, //android终端
         isiOS: u.match(/iPhone/i)||navigator.userAgent.match(/iPad/i) != null//ios终端
 
