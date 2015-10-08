@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="dev.min.js"></script>
+    <script src="tatooSDK.js"></script>
+</head>
+<body>
+
+<button onclick="getUserInfo()">userInfo</button>
+
+</body>
+<script>
+    function getUserInfo(){
+        alert('获取中');
+        tatoo.get('userInfo',function(){
+            var str='',obj=tatoo.data.userInfo;
+            for(var i in obj){
+                str += i + ':' + obj[i] +'\n';
+            }
+            $('body').text(str);
+        });
+    }
+</script>
+</html>
