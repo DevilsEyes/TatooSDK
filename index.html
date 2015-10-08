@@ -18,11 +18,13 @@
         alert('获取中');
         tatoo.get('userInfo',function(){
             console.log(tatoo.data.userInfo);
-            var str=tatoo.data.userInfo,
+            var str='',
                     obj=tatoo.data.userInfo;
-            for(var i in obj){
-                str += i + ':' + obj[i] +'\n';
-            }
+            str +='\n name:' + obj.name;
+            str +='\n id:' + obj.id;
+//            for(var i in obj){
+//                str += i + ':' + obj[i] +'\n';
+//            }
             $('body').text(str);
         });
     }
