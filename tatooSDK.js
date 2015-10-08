@@ -17,7 +17,7 @@
             if(tatoo.isAndroid){
                 var method = 'get' + target.substr(0,1).toUpperCase() + target.substr(1);
                 console.log(method);
-                tatoo.data[target] = window[tattoo_and][method]();
+                tatoo.data[target] = window['tattoo_and'][method]();
                 return next();
             }else if(tatoo.isiOS){
                 tatoo.callbackFunction[target] = next;//注册回调事件
