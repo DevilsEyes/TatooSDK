@@ -15,7 +15,7 @@
             //-------------------------------------------
 
             if(tatoo.isAndroid){
-                tatoo.data[target] = window[target];
+                tatoo.data[target] = window.tattoo_and.[target];
                 return next();
             }else if(tatoo.isiOS){
                 tatoo.callbackFunction[target] = next;//注册回调事件
